@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import "bootstrap/dist/css/bootstrap.min.css"; 
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,11 +20,35 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+          integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+          crossOrigin="anonymous"
+        /> */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        cz-shortcut-listen="true"
       >
-        {children}
+        <ThemeProvider attribute='class' enableSystem defaultTheme="light">
+
+          {children}
+        </ThemeProvider>
+        {/* 
+        <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossOrigin="true"></script>
+
+        <script
+          src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"
+          crossOrigin="true"></script>
+
+        <script
+          src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
+          crossOrigin="true"></script>
+
+        <script>var Alert = ReactBootstrap.Alert;</script> */}
       </body>
     </html>
   );
