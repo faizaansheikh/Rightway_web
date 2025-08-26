@@ -1,12 +1,11 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import ToggleTheme from './ToggleTheme';
-import MyPopover from './MyPopover';
+import React from 'react'
+import MyPopover from './MyPopover'
 import { FaChevronDown } from "react-icons/fa";
 import MyButton from './MyButton';
-function Header() {
+import ToggleTheme from './ToggleTheme';
+import { RxHamburgerMenu } from "react-icons/rx";
+function Navbar() {
+    // flex-grow
     const navItems = [
         {
             label: 'WHAT WE DO', items: [],
@@ -171,35 +170,43 @@ function Header() {
                 </>
         }
     ]
+    const logo = () => {
+        return <div className='bg-[] h-full  flex items-center text-2xl font-bold ml-3'>Rightway Solution</div>
+    }
     return (
         <>
-            <Navbar expand="lg" className="bg-body-tertiary " style={{display:'flex' ,justifyContent:'space-between'}}>
-                {/* <Container> */}
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav ">
-                        <Nav className=" flex items-center justify-center" style={{display:'flex' ,justifyContent:'center'}}>
+            <div className='fixed top-0 left-0 right-0 z-60  bg-[whitesmoke] h-[70px] w-full   hidden lg:flex justify-between'>
+                {logo()}
+                <div className='bg-[] h-full flex gap-3 '>
+                    <div className='flex items-center'>
 
-                            <Nav.Link href="#home">  <ToggleTheme /></Nav.Link>
-                            {
-                                navItems.map((x, i) => (
-                                    <div key={i} className='flex items-center'>
-                                        <MyPopover elem={x} /><FaChevronDown />
-                                    </div>
-                                    // <Nav.Link key={i} href="">{x.label}</Nav.Link>
-                                ))
-                            }
+                        <ToggleTheme />
+                    </div>
+                    {
+                        navItems.map((x, i) => (
+                            <div key={i} className='flex items-center'>
+                                <MyPopover elem={x} /><FaChevronDown size={14} />
+                            </div>
+                            // <Nav.Link key={i} href="">{x.label}</Nav.Link>
+                        ))
+                    }
+                </div>
+                <div className='bg-[] h-full flex items-center gap-3'>
+                    <div className='hidden xl:flex flex items-center gap-2 '>
+                        <MyButton className='ml-12' label='Explore Careers' type='fill' />
+                        <MyButton label='Lets Talk Business' type='transparent' />
+                    </div>
 
-                            <div className='ml-0 my-2 md:my-0 md:ml-6'><MyButton label='Explore Careers' type='fill' /></div>
-                            <div className='mx-2'><MyButton label='Lets Talk Business' type='transparent' /></div>
-                        </Nav>
-                              <Nav.Link className='flex justify-between items-center px-3' style={{fontSize:'14px'}}> Global</Nav.Link>
-                    </Navbar.Collapse>
-                {/* </Container> */}
-            </Navbar>
+                    <div className='mx-6 pr-2'>Global</div>
+                </div>
+            </div>
 
+            <div className=' bg-[whitesmoke] h-[70px] w-full flex justify-between items-center lg:hidden'>
+                <div> {logo()}</div>
+                <div className='mr-6 cursor-pointer'> <RxHamburgerMenu size={22} className=''/></div>
+            </div>
         </>
-    );
+    )
 }
 
-export default Header;
+export default Navbar

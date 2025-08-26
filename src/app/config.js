@@ -1,0 +1,1 @@
+export const bgMain = '#0EBAB1'
