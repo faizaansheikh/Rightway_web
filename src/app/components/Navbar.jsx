@@ -1,11 +1,15 @@
+'use client'
 import React from 'react'
 import MyPopover from './MyPopover'
 import { FaChevronDown } from "react-icons/fa";
 import MyButton from './MyButton';
 import ToggleTheme from './ToggleTheme';
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useTheme } from 'next-themes';
 function Navbar() {
-    // flex-grow
+     const { theme, setTheme } = useTheme();
+    
+     
     const navItems = [
         {
             label: 'WHAT WE DO', items: [],
@@ -175,8 +179,8 @@ function Navbar() {
     }
     return (
         <>
-            <div className='fixed top-0 left-0 right-0 z-60  bg-[whitesmoke] h-[70px] w-full   hidden lg:flex justify-between'>
-                {logo()}
+            <div className='fixed top-0 left-0 right-0 z-60   h-[70px] w-full   hidden lg:flex justify-between' style={{backgroundColor:theme === 'light'?'white':'black'}}>
+               <div className='ml-4'> {logo()}</div>
                 <div className='bg-[] h-full flex gap-3 '>
                     <div className='flex items-center'>
 

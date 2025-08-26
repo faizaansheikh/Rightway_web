@@ -1,9 +1,10 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 
 function Section() {
     return (
-        <div className='mt-[60px]'>
+        <div className='mt-[60px] px-[60px]'>
             {/* <p className="text-center text-3xl md:text-5xl font-normal px-3 text-black !my-[60px]">
                 Streamlining Guests Journey
             </p> */}

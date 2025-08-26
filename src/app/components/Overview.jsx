@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 import { bgMain } from '../config'
@@ -12,7 +13,7 @@ function Overview() {
 
     return (
         <>
-            <div className="bg-[] w-full min-h-[500px] flex flex-col lg:flex-row gap-6 p-6 mt-6">
+            <div className="bg-[] w-full min-h-[500px] flex flex-col lg:flex-row gap-6 p-6 mt-6 md:px-[60px]">
                 {/* Left Side - Text */}
                 <div className="bg-[] w-full lg:w-1/2 flex flex-col justify-center">
                     <p style={{ color: bgMain }} className='text-lg'>OVERVIEW</p>
@@ -47,7 +48,7 @@ function Overview() {
             </div>
             {/* ======================================== */}
 
-            <div className="bg-[] w-full min-h-[500px] flex flex-col lg:flex-row gap-6 p-6">
+            <div className="bg-[] w-full min-h-[500px] flex flex-col lg:flex-row gap-6 p-6 md:px-[60px]">
                 {/* Left Side - Text */}
                 <div className="bg-[] w-full lg:w-1/2 flex flex-col justify-center">
                     <p style={{ color: bgMain }} className='text-lg'>Key challenges of the industry</p>

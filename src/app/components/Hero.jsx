@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import MyButton from "./MyButton";
 
@@ -14,8 +15,8 @@ export default function Hero() {
             />
 
             {/* Glass div with content */}
-            <div className="absolute inset-0 flex items-center justify-center mt-36">
-                <div className="bg-white/20 backdrop-blur-md rounded-2xl p-8 w-full max-w-6xl mx-4  shadow-lg">
+            <div className="absolute inset-0  flex items-center justify-center mt-12 md:mt-68">
+                <div className="bg-black/15 backdrop-blur-md rounded-2xl p-8 md:py-22 w-full max-w-6xl mx-4  shadow-lg">
                     <p className="text-xl font-bold text-white mb-2 drop-shadow-lg">Travel & Hospitality</p>
                     <p className="text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
                         Shaping Hospitality’s Future with Smart IT <br /> Solutions

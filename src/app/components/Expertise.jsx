@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { FaHeart } from "react-icons/fa";
 import { GiAbstract014 } from "react-icons/gi";
@@ -6,7 +7,9 @@ import { RiMessage3Fill } from "react-icons/ri";
 import { TbConeFilled } from "react-icons/tb";
 import { PiBracketsRoundBold } from "react-icons/pi";
 import MyButton from './MyButton';
+import { useTheme } from 'next-themes';
 function Expertise() {
+    const { theme, setTheme } = useTheme();
     const items = [
         {
             icon: (size, color) => <FaHeart size={size} color={color} />,
@@ -47,17 +50,19 @@ function Expertise() {
     ]
     return (
         <>
-            <div className='mt-[80px] pb-[50px]'>
+            <div className='mt-[80px] pb-[50px] '>
                 <p className='text-center text-3xl md:text-5xl font-bold px-3'>Expertise: Devsinc’s 360-degree Hospitality Services</p>
                 <div className="bg-[] w-full h-auto flex justify-center items-center flex-wrap gap-9 mt-[80px]">
                     {items.map((x, i) => (
 
                         <div
                             key={i}
-                            className="w-[430px] h-[430px] border border-black rounded-[23px] 
+                            className={`
+                                w-[430px] h-[430px] border ${theme === 'light' ? 'border-black':'border-white'} rounded-[23px] 
              flex flex-col justify-center items-center px-4 
              transition-all duration-300 
-             hover:border-[#0EBAB1] hover:!border-[#0EBAB1]"
+             hover:border-[#0EBAB1] hover:!border-[#0EBAB1]
+                                `}
                         >
                             <p className=' p-3'>{x.icon(80, '#e3a79bff')}</p>
                             <p className='text-center text-4xl font-extrabold'>{x.head}</p>
@@ -112,8 +117,8 @@ function Expertise() {
 
                                     {/* Push button to bottom */}
                                     <div className="mt-auto flex justify-end">
-                                         <MyButton size='18px' label='Explore' type='fill' />
-                                      
+                                        <MyButton size='18px' label='Explore' type='fill' />
+
                                     </div>
                                 </div>
                             </div>
