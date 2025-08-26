@@ -2,16 +2,16 @@
 import { FaFacebook, FaLinkedin, FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
-   
+//    grid grid-cols-1 md:grid-cols-3
     return (
         <footer
-           className="relative w-full bg-cover bg-center  opacity-100"
+           className="relative w-full bg-cover bg-center  opacity-100 md:px-[60px]"
             style={{
                 backgroundImage:
                     "url('https://cdn.prod.website-files.com/6719ad0ceed6d5aa24a83d61/677e7900b0e6eb3282894bdc_footer%20gradient.png')",
             }}
         >
-            <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className=" px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Left Section */}
                 <div>
                     <div className="flex items-center space-x-2 mb-4">
@@ -93,7 +93,7 @@ export default function Footer() {
             </div>
 
             {/* Bottom Row */}
-            <div className="flex justify-between flex-col md:flex-row max-w-7xl mx-auto px-6 py-8 gap-8 text-sm">
+            <div className="flex justify-between flex-col md:flex-row px-[20px] md:px-[30px]  py-8  text-sm">
                 <div>
                     <p className="font-bold">
                         global.business@devsinc.com
